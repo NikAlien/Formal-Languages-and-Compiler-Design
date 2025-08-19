@@ -1,0 +1,22 @@
+Program Declaration_list Cmpstmt Declaration Type Array_declaration Stmt Simple_stmt Struct_stmt Assign_stmt IOstmt Expression Math_operators Term If_stmt For_stmt Condition For_loop RELATION For_relation
+. CONST IDENTIFIER int char ( ) + - * / cin >> cout << if [ ] { } else for < <= = != >= > ++
+Program
+Program|Declaration_list Cmpstmt
+Declaration_list|Declaration Declaration_list|Declaration
+Declaration|Type IDENTIFIER|Type IDENTIFIER = CONST|Type Array_declaration
+Type|int|char
+Array_declaration|IDENTIFIER ( CONST )
+Cmpstmt|Stmt Cmpstmt|Stmt
+Stmt|Assign_stmt|IOstmt|Struct_stmt
+Assign_stmt|IDENTIFIER = Expression
+Math_operators|*|-|+|/
+Expression|Term Math_operators Term|Term
+Term|CONST|IDENTIFIER
+IOstmt|cin >> IDENTIFIER|cout << CONST|cout << IDENTIFIER
+Struct_stmt|For_stmt|If_stmt|
+If_stmt|if [ Condition ] { Cmpstmt } else { Cmpstmt }|if [ Condition ] { Cmpstmt }
+For_stmt|for [ For_loop ] { Cmpstmt }
+Condition|Expression RELATION Expression
+RELATION|<|<=|==|!=|>=|>
+For_relation|<|<=|>=|>
+For_loop|int IDENTIFIER = CONST . IDENTIFIER For_relation IDENTIFIER . IDENTIFIER ++|int IDENTIFIER = CONST . IDENTIFIER For_relation CONST . IDENTIFIER ++
