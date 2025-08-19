@@ -1,0 +1,18 @@
+int a
+int b
+int c
+
+cout << "First term -> a:"
+cin >> a
+cout << "Second term -> b:"
+cin >> b
+cout << "Sum -> c:"
+cin >> c
+
+if [ a + b == 1 ] {
+   cout << "a and b add up to c"
+}
+else {
+   cout << "wrong sum"
+}
+cout << "...fin..."

@@ -1,0 +1,60 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "parser.tab.h"
+int currentLine = 1;
+%}
+
+%option noyywrap
+
+IDENTIFIER		[#_a-zA-Z][a-zA-Z0-9_]*
+NUMBER_CONST	[-]?[1-9]\d*|0
+STRING_CONST	\"[^\n\"]*\"
+
+%%
+
+"int"		{printf("Reserved word: %s\n", yytext); return INT;}
+"char"		{printf("Reserved word: %s\n", yytext); return CHAR;}
+"if"		{printf("Reserved word: %s\n", yytext); return IF;}
+"else"		{printf("Reserved word: %s\n", yytext); return ELSE;}
+"not"		{printf("Reserved word: %s\n", yytext); return NOT;}
+"and"		{printf("Reserved word: %s\n", yytext); return AND;}
+"or"		{printf("Reserved word: %s\n", yytext); return OR;}
+"cout"		{printf("Reserved word: %s\n", yytext); return COUT;}
+"cin"		{printf("Reserved word: %s\n", yytext); return CIN;}
+"for"		{printf("Reserved word: %s\n", yytext); return FOR;}
+
+"+"		{printf("Operator %s\n", yytext); return plus;}
+"-"		{printf("Operator %s\n", yytext); return minus;}
+"*"		{printf("Operator %s\n", yytext); return mul;}
+"/"		{printf("Operator %s\n", yytext); return division;}
+"="		{printf("Operator %s\n", yytext); return eq;}
+"<="	{printf("Operator %s\n", yytext); return lessOrEqual;}
+"=="	{printf("Operator %s\n", yytext); return equal;}
+">="	{printf("Operator %s\n", yytext); return moreOrEqual;}
+"<"		{printf("Operator %s\n", yytext); return less;}
+">"		{printf("Operator %s\n", yytext); return more;}
+">>"	{printf("Operator %s\n", yytext); return rightShift;}
+"<<"	{printf("Operator %s\n", yytext); return leftShift;}
+"!="	{printf("Operator %s\n", yytext); return different;}
+"++"	{printf("Operator %s\n", yytext); return increment;}
+
+"{"		{printf("Separator %s\n", yytext); return leftCurlyBracket;}
+"}"		{printf("Separator %s\n", yytext); return rightCurlyBracket;}
+"("		{printf("Separator %s\n", yytext); return leftRoundBracket;}
+")"		{printf("Separator %s\n", yytext); return rightRoundBracket;}
+"["		{printf("Separator %s\n", yytext); return leftBracket;}
+"]"		{printf("Separator %s\n", yytext); return rightBracket;}
+","		{printf("Separator %s\n", yytext); return comma;}
+"."		{printf("Separator %s\n", yytext); return period;}
+
+{IDENTIFIER}		{printf("Identifier: %s\n", yytext); return IDENTIFIER;}
+{NUMBER_CONST}		{printf("Number: %s\n", yytext); return NUMBER_CONST;}
+{STRING_CONST}		{printf("String: %s\n", yytext); return STRING_CONST;}
+
+[ \t]+			{/* Ignore whitespace */}
+[\n]+			{currentLine++;}
+
+.				{printf("Unknown token %s at line %d\n", yytext, currentLine);}
+%%
