@@ -1,0 +1,15 @@
+//P1: Check if 3 lengths given can create a triangle
+
+int a, b, c.
+    	cout << "Length of a: ".
+    	cin >> a.
+    	cout << "Length of b: ".
+    	cin >> b.
+    	cout << "Length of c: ".
+   	cin >> c.
+
+    	if [a + b > c and a + c > b and b + c > a]
+        		cout << "They are lengths for a triangle".
+    	else
+  	    	cout << "No triangle".
+

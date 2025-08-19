@@ -1,0 +1,27 @@
+Program = declarationList “.” cmpstmt 
+
+declarationList = declaration | declaration “.”  declarationList 
+declaration = type (identifier | arrayDeclaration)
+type = “int” | “char”
+naturalNr = nonzero { “0” | nonzero } 
+arrayDeclaration = identifier “(“ naturalNr “)”
+
+cmpstmt = stmt | stmt “.” cmpstmt “.”
+stmt = simplstmt | structstmt
+simplstmt = assignstmt | iostmt
+
+assignstmt = identifier "=" expression
+mathOperators = “+” | “-” | “*” | “/”
+expression = expression mathOperators term | term
+term = "(" expression ")" | identifier
+
+iostmt = "cin >>" | "cout <<"  identifier 
+
+structstmt = cmpdstmt | ifstmt | forstmt
+ifstmt = "if [" condition "] {" cmpstmt “}” [ “else {" cmpstmt “}”]
+forstmt = "for [" forLoop "] {" cmpstmt “}”
+condition = expression RELATION expression
+RELATION = "<" | "<=" | "=" | "!=" | ">=" | ">"
+forRelation = "<" | "<=" | ">=" | ">"
+forLoop = “int” identifier  “ = ” digit “.” identifier forRelation naturalNr “.” Identifier “++”
+

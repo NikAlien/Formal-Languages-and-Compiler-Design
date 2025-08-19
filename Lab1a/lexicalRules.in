@@ -1,0 +1,7 @@
+Lexical Rules for my mini-language:
+1.	Similar with C++
+2.	() parentheses are going to be switched with []
+3.	Every line ends with . instead of ;
+4.	Variable names can start with # besides a letter and _
+5.	Logical operators are changed: && => `and`, || => `or`, ! => `not`
+

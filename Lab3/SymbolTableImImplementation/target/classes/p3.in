@@ -1,0 +1,19 @@
+int len, final(10).
+	
+cout << "Length = ".
+cin >> len.
+	
+if [ len > 10 ]
+cout << "Length too big".
+
+else {
+	for [ int i = 0. i < len. i = i + 1 ]
+	{
+	    cout << "Element " <<  i + 1 << " = ".
+	    cin >> final( len - i - 1 ).
+	}
+	    
+	cout << "Reverse array: ".
+	for [ int i = 0. i < len. i = i + 1 ]
+	    cout << final( i ) << " ".
+}

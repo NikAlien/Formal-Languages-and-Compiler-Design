@@ -1,0 +1,5 @@
+Special tokens:
+	a.	Operators: + - * / = <= == >= < > >> << != ++
+	b.	Separator: [] () {} . space 
+	c.	Reserved words: int char if else not and or cout cin for 
+
